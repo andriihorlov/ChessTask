@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f721d5e261440e4a55b4f522cb0dcb2, type: 3}
+  m_Name: Messages Config
+  m_EditorClassIdentifier: 
+  <CantFindGtlfPath>k__BackingField: Can't find a glTF model on the path
+  <MessageConfigs>k__BackingField:
+  - <StateName>k__BackingField: 0
+    <MainMessage>k__BackingField: Waiting for Marker
+    <AdditionalMessage>k__BackingField: Please click the plane to instantiate the
+      marker
+  - <StateName>k__BackingField: 1
+    <MainMessage>k__BackingField: Loading geometry
+    <AdditionalMessage>k__BackingField: Please wait while geometry is being loaded
+  - <StateName>k__BackingField: 2
+    <MainMessage>k__BackingField: Done
+    <AdditionalMessage>k__BackingField: 

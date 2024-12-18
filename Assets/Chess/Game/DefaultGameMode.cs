@@ -8,10 +8,9 @@ namespace Chess.Game
     public class DefaultGameMode : MonoBehaviour
     {
         [SerializeField] private GameModeView _gameModeView;
-        [SerializeField] private GLTFast.GltfAsset _gltfAsset;
         [SerializeField] private Transform _markerTransform;
 
-        [Header("States")] 
+        private GameStateMachine _gameStateMachine;
         private WaitingForMarker _waitingForMarker; 
         private LoadingGeometry _loadingGeometry;
         private GeometryPlaced _geometryPlaced;
@@ -30,29 +29,36 @@ namespace Chess.Game
             _geometryPlaced.StateCompleted -= HandleGeometryPlacedOnStateCompleted;
         }
 
+        public void Init(GameConfig gameConfig, MessagesConfig messagesConfig)
+        {
+            _gameStateMachine = new GameStateMachine();
+            _loadingGeometry = new LoadingGeometry(gameConfig.GetAssetPaths(), messagesConfig.CantFindGtlfPath);
+            _waitingForMarker = new WaitingForMarker(_markerTransform);
+            _geometryPlaced = new GeometryPlaced(_markerTransform, gameConfig, messagesConfig);
+            _gameModeView.InitMessages(messagesConfig);
+        }
+
         public void StartGame()
         {
-            _waitingForMarker.ActivateState();
+            _gameStateMachine.ChangeState(_waitingForMarker);
             _gameModeView.ShowState(GameStateName.WaitingForMarker);
         }
 
         private void HandleWaitingForMarkerOnStateCompleted()
         {
             _gameModeView.ShowState(GameStateName.LoadingGeometry);
-            _waitingForMarker.DeactivateState();
-            _loadingGeometry.ActivateState();
+            _gameStateMachine.ChangeState(_loadingGeometry);
         }
 
         private void HandleLoadingGeometryOnStateCompleted()
         {
             _gameModeView.ShowState(GameStateName.GeometryPlaced);
-            _loadingGeometry.DeactivateState();
-            _geometryPlaced.ActivateState();
+            _gameStateMachine.ChangeState(_geometryPlaced, _loadingGeometry.GltfImport);
         }
 
         private void HandleGeometryPlacedOnStateCompleted()
         {
-            _geometryPlaced.DeactivateState();
+            _gameStateMachine.FinishGame();
         }
     }
 }

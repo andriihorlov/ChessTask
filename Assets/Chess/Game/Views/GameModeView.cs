@@ -21,28 +21,14 @@ namespace Chess.Game.Views
         
         public void ShowState(GameStateName gameStateName)
         {
-            string message = GetMessage(gameStateName);
-            SetText(message, gameStateName != GameStateName.GeometryPlaced);
+            MessageInformation messageInformation = GetMessage(gameStateName);
+            _aboveText.text = messageInformation.MainMessage;
+            _belowText.text = messageInformation.AdditionalMessage;
         }
 
-        private string GetMessage(GameStateName gameStateName)
+        private MessageInformation GetMessage(GameStateName gameStateName)
         {
-            return _messagesInformation.First(messageConfig => messageConfig.StateName == gameStateName).Message;
-        }
-
-        private void SetText(string text, bool isAbove)
-        {
-            _aboveText.gameObject.SetActive(isAbove);
-            _belowText.gameObject.SetActive(!isAbove);
-
-            if (isAbove)
-            {
-                _aboveText.text = text;
-            }
-            else
-            {
-                _belowText.text = text;
-            }
+            return _messagesInformation.First(messageConfig => messageConfig.StateName == gameStateName);
         }
     }
 }
