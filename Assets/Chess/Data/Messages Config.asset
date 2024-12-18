@@ -15,8 +15,12 @@ MonoBehaviour:
   <CantFindGtlfPath>k__BackingField: Can't find a glTF model on the path
   <MessageConfigs>k__BackingField:
   - <StateName>k__BackingField: 0
-    <Message>k__BackingField: Waiting for Marker
+    <MainMessage>k__BackingField: Waiting for Marker
+    <AdditionalMessage>k__BackingField: Please click the plane to instantiate the
+      marker
   - <StateName>k__BackingField: 1
-    <Message>k__BackingField: Loading geometry
+    <MainMessage>k__BackingField: Loading geometry
+    <AdditionalMessage>k__BackingField: Please wait while geometry is being loaded
   - <StateName>k__BackingField: 2
-    <Message>k__BackingField: Please wait while geometry is being loaded
+    <MainMessage>k__BackingField: Done
+    <AdditionalMessage>k__BackingField: 
