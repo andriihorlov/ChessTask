@@ -12,13 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa8804dfdca0e94fa5921f6510629cf, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
+  <MouseButtonId>k__BackingField: 0
+  <PivotObjectName>k__BackingField: King_B
   <DefaultAssetPath>k__BackingField: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/ABeautifulGame/glTF/ABeautifulGame.gltf
   <AnalogAssetPath>k__BackingField: file://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/d7a3cc8e51d7c573771ae77a57f16b0662a905c6/2.0/ABeautifulGame/glTF/ABeautifulGame.gltf
-  <CantFindGtlfPath>k__BackingField: Can't find a glTF model on the path
-  <MessageConfigs>k__BackingField:
-  - <StateName>k__BackingField: 0
-    <Message>k__BackingField: Waiting for Marker
-  - <StateName>k__BackingField: 1
-    <Message>k__BackingField: Loading geometry
-  - <StateName>k__BackingField: 2
-    <Message>k__BackingField: Please wait while geometry is being loaded
