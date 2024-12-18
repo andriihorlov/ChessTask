@@ -30,6 +30,11 @@ namespace Chess.Game
             _geometryPlaced.StateCompleted -= HandleGeometryPlacedOnStateCompleted;
         }
 
+        public void Init(GameConfig gameConfig, MessagesConfig messagesConfig)
+        {
+            _gameModeView.InitMessages(messagesConfig);
+        }
+
         public void StartGame()
         {
             _waitingForMarker.ActivateState();
