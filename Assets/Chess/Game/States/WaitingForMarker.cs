@@ -14,9 +14,9 @@ namespace Chess.Game.States
             _mainCamera = Camera.main;
         }
 
-        public override void ActivateState()
+        public override void ActivateState(object data = null)
         {
-            base.ActivateState();
+            base.ActivateState(data);
             GameInputManager.MouseButtonClicked += HandleGameInputManagerMouseButtonClicked;
         }
 

@@ -6,7 +6,7 @@ namespace Chess.Game.States
     {
         public event Action StateCompleted;
 
-        public virtual void ActivateState()
+        public virtual void ActivateState(object data = null)
         {
         }
 
