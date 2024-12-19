@@ -36,10 +36,11 @@ namespace Chess.Game.States
                 _gltfImport = import;
             }
             
-            SpawnAndRepose();
+            SpawnAndRepose().Forget();
         }
 
-        private async void SpawnAndRepose()
+
+        private async UniTaskVoid SpawnAndRepose()
         {
             await CreateObject();
             UpdateMarkerPosition();
