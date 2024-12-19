@@ -2,7 +2,7 @@
 
 |Date       |Task                          |Time spent                         |
 |----------------|-------------------------------|-----------------------------|
-|Monday Evening    |Received task. Quick overview.|            |
+|Monday Evening    |Received task. Quick Overview.|            |
 |Tuesday|Initialized git project. Created a Unity project and prepared the structure. |0.5 hour|
 ||Reviewed the task again. Researched and understood what GLTF is. Imported the package into the project and tested it.  |1 hour|
 ||Thought about architecture. Drew an Architecture Diagram. Prepared code for future use. Created models of the marker and floor.| 2 hours|
@@ -11,6 +11,9 @@
 |Thursday |inal code review. Made minor changes. Merged everything into the main branch. Prepared this document.|0.5 hour|
 
 ## Architecture Diagram
-
 Please find below the architecture diagram
 ![Architecture diagram](Diagram.png)
+
+## Notes
+1. Implementing the state machine is symbolic, as I chose not to spend too much time on it.
+2. Tests also weren't added at this stage to save time. If this is critical, let me know, and I will add them.
