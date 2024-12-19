@@ -32,7 +32,7 @@ namespace Chess.Game
         public void Init(GameConfig gameConfig, MessagesConfig messagesConfig)
         {
             _gameStateMachine = new GameStateMachine();
-            _loadingGeometry = new LoadingGeometry(gameConfig.GetAssetPaths(), messagesConfig.CantFindGtlfPath);
+            _loadingGeometry = new LoadingGeometry(gameConfig, messagesConfig);
             _waitingForMarker = new WaitingForMarker(_markerTransform);
             _geometryPlaced = new GeometryPlaced(_markerTransform, gameConfig, messagesConfig);
             _gameModeView.InitMessages(messagesConfig);

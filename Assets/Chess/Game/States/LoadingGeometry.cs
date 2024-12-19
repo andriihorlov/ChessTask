@@ -1,3 +1,4 @@
+using Chess.Data;
 using Cysharp.Threading.Tasks;
 using GLTFast;
 using Unity.Properties;
@@ -11,20 +12,20 @@ namespace Chess.Game.States
         
         public GltfImport GltfImport { get; private set; }
 
-        public LoadingGeometry(string[] paths, string messagesCantFindGtlfPath)
+        public LoadingGeometry(GameConfig paths, MessagesConfig messageConfig)
         {
-            _paths = paths;
-            _messageCantFindGtlf = messagesCantFindGtlfPath;
+            _paths = paths.GetAssetPaths();
+            _messageCantFindGtlf = messageConfig.CantFindGtlfPath;
         }
         
         public override void ActivateState(object data = null)
         {
             base.ActivateState(data);
             GltfImport = new GltfImport();
-            LoadAsset();
+            LoadAsset().Forget();
         }
-
-        private async void LoadAsset()
+        
+        private async UniTaskVoid LoadAsset()
         {
             foreach (string path in _paths)
             {
