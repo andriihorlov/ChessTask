@@ -22,12 +22,12 @@ namespace Chess.Game.States
         {
             _markerTargetFigureName = gameConfig.PivotObjectName;
             _spawnObjectName = gameConfig.SpawnObjectName;
-            
+
             _markerTransform = markerTransform;
             _cantFindPivotObjectMessage = messagesConfig.CantFindPivotObject;
             _sceneCantBeLoadedMessage = messagesConfig.CantFindPivotObject;
         }
-        
+
         public override void ActivateState(object data = null)
         {
             base.ActivateState(data);
@@ -35,7 +35,7 @@ namespace Chess.Game.States
             {
                 _gltfImport = import;
             }
-            
+
             SpawnAndRepose().Forget();
         }
 
@@ -60,7 +60,7 @@ namespace Chess.Game.States
             {
                 throw new NullReferenceException(_cantFindPivotObjectMessage + _markerTargetFigureName);
             }
-            
+
             UpdateModelPosition(parentObject.transform);
         }
 
@@ -72,7 +72,6 @@ namespace Chess.Game.States
         private void UpdateModelPosition(Transform parentObject)
         {
             Vector3 targetPosition = _markerTransform.position - _targetPivot.position;
-            targetPosition.y = parentObject.position.y;
             parentObject.position = targetPosition;
         }
 
